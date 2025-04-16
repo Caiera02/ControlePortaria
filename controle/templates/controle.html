@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="{% static 'CSS/controle.css' %}" />
 
   <form method="get" action="{% url 'controle_list' %}">
-    <input type="date" name="search" />
+    <input type="date" name="search" value="{{ request.GET.search }}"/>
     <button type="submit">Filtrar</button>
   </form>
 

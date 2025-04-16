@@ -26,7 +26,7 @@ class Controle(models.Model):
                               related_name='funcionario', verbose_name='departamento')
     data= models.DateField(auto_now_add=True)
     entrada= models.TimeField( verbose_name= 'Entrada')
-    saida= models.TimeField( verbose_name= 'saida')
+    saida= models.TimeField( verbose_name= 'saida',blank=True, null=True)
 
     class Meta:
         ordering= ['nome']

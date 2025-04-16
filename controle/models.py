@@ -27,11 +27,14 @@ class Controle(models.Model):
     nome= models.ForeignKey(Funcionario, on_delete=models.PROTECT,
                              related_name='funcionario', verbose_name='Nome')
     setor= models.ForeignKey(Setor, on_delete=models.PROTECT,
-                              related_name='funcionario', verbose_name='departamento')
+                              related_name='funcionario',blank=True, null=True, verbose_name='departamento')
     data= models.DateField(auto_now_add=True)
     entrada= models.TimeField( verbose_name= 'Entrada')
     saida= models.TimeField( verbose_name= 'saida',blank=True, null=True)
 
+    def __str__(self):
+        return f'{self.nome} - {self.setor}'
+    
     class Meta:
         ordering= ['nome']
         unique_together = ('nome', 'data')

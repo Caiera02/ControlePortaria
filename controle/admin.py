@@ -14,6 +14,7 @@ class SetorAdmin(admin.ModelAdmin):
 class ControleAdmin(admin.ModelAdmin):
     list_display =['nome','setor','data','entrada','saida']
     list_filter = (('data',admin.DateFieldListFilter),)
+    ordering= ('nome',)
     
     
 

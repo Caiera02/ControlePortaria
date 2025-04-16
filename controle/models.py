@@ -14,6 +14,10 @@ class Funcionario(models.Model):
     
     def __str__(self):
         return self.nome
+    
+    class Meta:
+        ordering= ['nome']
+
 
 class Controle(models.Model):
     nome= models.ForeignKey(Funcionario, on_delete=models.PROTECT,
@@ -23,3 +27,7 @@ class Controle(models.Model):
     data= models.DateField(auto_now_add=True)
     entrada= models.TimeField( verbose_name= 'Entrada')
     saida= models.TimeField( verbose_name= 'saida')
+
+    class Meta:
+        ordering= ['nome']
+        unique_together = ('nome', 'data')

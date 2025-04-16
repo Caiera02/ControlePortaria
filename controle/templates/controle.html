@@ -1,0 +1,42 @@
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'CSS/controle.css' %}" />
+
+  <form method="get" action="{% url 'controle_list' %}">
+    <input type="date" name="search" />
+    <button type="submit">Filtrar</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        {% comment %} <th></th> {% endcomment %}
+        <th>NOME</th>
+        <th>DEPARTAMENTO</th>
+        <th>DATA</th>
+        <th>ENTRADA</th>
+        <th>SAÍDA</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for controle in controle %}
+        <tr>
+          {% comment %} <td>
+            <input type="checkbox" />
+          </td> {% endcomment %}
+          <td>
+            {{ controle.nome }}
+          </td>
+          <td>{{ controle.setor }}</td>
+          <td>{{ controle.data|date:'d \d\e F \d\e Y' }}</td>
+          <td>{{ controle.entrada|time:'H:i' }}</td>
+          <td>{{ controle.saida|time:'H:i' }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="6" style="text-align:center;">Nenhum registro encontrado</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

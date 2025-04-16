@@ -7,6 +7,9 @@ class Setor(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name =' Setore'
+        
 class Funcionario(models.Model):
     nome= models.CharField(max_length=60)
     setor= models.ForeignKey(Setor, on_delete=models.PROTECT,
@@ -17,6 +20,7 @@ class Funcionario(models.Model):
     
     class Meta:
         ordering= ['nome']
+        verbose_name = 'Cooperado'
 
 
 class Controle(models.Model):

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +129,67 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    'site_title': 'Portaria',
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    'site_header': 'Portaria',
+
+    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    'site_brand': 'Portaria',
+    
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    # "site_logo": "img/Design sem nome (1).svg",
+    
+    'icons': {
+        'auth': 'fas fa-users-cog',
+        'auth': 'fas fa-star',
+        'auth.user': 'fas fa-user',
+        'auth.Group': 'fas fa-users',
+        'products.Controle': 'fas fa-laptop',
+        'products.Prestador': 'fas fa-user',
+        'products.Perifericos': 'fas fa-microchip',
+        'products.Category': 'fas fa-object-group',
+        'products.Brand': 'fas fa-copyright',
+        'products.Branch': 'fas fa-flag-usa',
+        'products.Cooperado': 'fas fa-users',
+        'products.Phone': 'fas fa-mobile',
+        'products.Product': 'fas fa-box',
+        'tickets.ticket':'fas fa-list',
+        'tickets.ServiceChannel':'fas fa-phone',
+        'tickets.Motive':'fas fa-triangle-exclamation',
+        'tickets.status':'fas fa-progress',
+    },
+
+    # Welcome text on the login screen
+    'welcome_sign': 'Bem-vindo(a) ao System Port',
+   
+    
+    # Copyright on the footer
+    'copyright': 'Caiera LTDA',
+
+    # Links to put along the top menu
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        # external url that opens in a new window (Permissions can be added)
+        {"name": "Controle", "url": "controle_list", "new_window": True},
+        # {"name": "Abrir chamado", "url": "http://127.0.0.1:8000/admin/tickets/ticket/add/", "new_window":True},
+
+        # model admin to link to (Permissions checked against model)
+        # {"model": "auth.User"},
+
+        # App with dropdown menu to all its models pages (Permissions checked against models)
+        {"app": "books"},
+    ],
+    # List of model admins to search from the search bar, search bar omitted if excluded
+    # If you want to use a single search field you dont need to use a list, you can use a simple string
+    #'search_model': ['products.Controle'], # Faz uma busca no model, fica no top do site
+
+    # Whether to show the UI customizer on the sidebar
+    'show_ui_builder': False, # Alteração das cores,layout etc
+}

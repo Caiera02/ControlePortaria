@@ -27,8 +27,8 @@
           <td>
             {{ controle.nome }}
           </td>
-          <td>{{ controle.setor }}</td>
-          <td>{{ controle.data|date:'d \d\e F \d\e Y' }}</td>
+          <td>{{ controle.nome.setor.nome }}</td>
+          <td>{{ controle.data|date:'d \/\ m \/\ Y' }}</td>
           <td>{{ controle.entrada|time:'H:i' }}</td>
           <td>{{ controle.saida|time:'H:i' }}</td>
         </tr>

@@ -22,22 +22,7 @@ td {
     padding: 10px;
     border: 1px solid #d1d5db;
     color: #333;
-}
-
-th {
-    background-color: #1E3A5F;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #d1d5db;
-}
-
-th {
-    background-color: #1E3A5F;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #d1d5db;
+    text-align: center;
 }
 
 tr:nth-child(even) {
@@ -54,13 +39,19 @@ input {
     justify-content: center;
     padding: 10px;
     border-radius: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input{
+    text-align: center;
+    margin-right: 1%;
 }
 
 button {
     border-radius: 20px;
 }
 
-/* Responsivo */
+/* Responsivo 
 @media (max-width: 842px) {
     table,
     thead,
@@ -95,4 +86,4 @@ button {
         font-weight: bold;
         text-align: left;
     }
-}
+}*/

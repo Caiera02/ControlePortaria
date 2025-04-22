@@ -16,8 +16,8 @@ class SetorAdmin(SimpleHistoryAdmin):
 class ControleResource(resources.ModelResource):
     class Meta:
         model= Controle
-        fields = ('id', 'nome__nome', 'data', 'entrada', 'saida')  # Exemplo com campos relacionados
-        export_order = ('nome__nome', 'setor__nome', 'data', 'entrada', 'saida')
+        fields = ('nome__nome', 'data', 'entrada', 'saida')  # Exemplo com campos relacionados
+        export_order = ('nome__nome', 'data', 'entrada', 'saida')
 
 @admin.register(Controle)
 class ControleAdmin(ImportExportModelAdmin):

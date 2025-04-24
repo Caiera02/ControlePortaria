@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'controle',
     'import_export',
     'simple_history',
+    'contas',
 ]
 
 MIDDLEWARE = [

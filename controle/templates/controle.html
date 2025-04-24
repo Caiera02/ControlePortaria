@@ -2,6 +2,7 @@
 {% block content %}
   <link rel="stylesheet" href="{% static 'CSS/controle.css' %}" />
 
+  <a href="{% url "home" %}"> <img class="btn-left" src=" {% static 'IMG/home.png' %} " alt=""></a>
   <form method="get" action="{% url 'controle_list' %}">
     <input type="date" name="search" value="{{ request.GET.search }}"/>
     <button type="submit">Filtrar</button>

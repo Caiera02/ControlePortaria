@@ -1,51 +1,18 @@
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'CSS/home.css' %}">
     <title>Botões</title>
-    <style>
-      body {
-        background: #eaf7f1;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding-top: 100px;
-      }
-      
-      .botao {
-        display: inline-block;
-        width: 200px;
-        padding: 15px 0;
-        margin: 10px;
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: 0.3s ease;
-      }
-      
-      .entrada {
-        background-color: #6cc17e; /* verde claro como o botão "Agora" */
-      }
-      
-      .saida {
-        background-color: #2f8f3e; /* verde escuro como o botão "Salvar" */
-      }
-      
-      .lista {
-        background-color: #4caf50; /* verde intermediário para equilíbrio */
-      }
-      
-      .botao:hover {
-        opacity: 0.9;
-      }
-    </style>
+
   </head>
   <body>
+    <a href="{% url "home" %}"> <img class="btn-left" src=" {% static 'IMG/home.png' %} " alt=""></a>
     <a href="{% url 'register' %} "><button class="botao entrada">Entrada</button></a>
     <a href="{% url 'saida' %} "><button class="botao entrada">Saida</button></a>
     <a href="{% url 'controle_list' %} "><button class="botao entrada">Listagem</button></a>
   </body>
 </html>
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from datetime import date
+from datetime import date, timezone
 from .models import Controle
 from controle.forms import ControleForm
 
@@ -22,16 +22,33 @@ def controle_view(request):
         {'controle' : control}
     )
     
-@login_required(login_url='/admin/')
-def registra_ponto(request, pk=None):
+
+def registra_ponto(request):
     if request.method == 'POST':
         form = ControleForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('controle_list')
+            return redirect('register')  # Substitua pela sua URL
     else:
         form = ControleForm()
 
     return render(request, 'register.html', {
         'form': form,
     })
+
+def saida_ponto(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        saida = request.POST.get('saida')
+        registro = Controle.objects.filter(nome=nome, saida__isnull=True).order_by('-entrada').first()
+        print(nome,saida)
+        if registro:
+            registro.saida = saida or timezone.now()  # usa o valor do form ou hora atual
+            registro.save()
+            return redirect('saida')
+    else:
+        new_form= ControleForm()
+    
+    return render(request,
+                  'saida.html',
+                  {'form':new_form})

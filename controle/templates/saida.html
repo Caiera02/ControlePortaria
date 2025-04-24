@@ -107,27 +107,21 @@
   </head>
   <body>
     <div class="form-container">
-      <h2>Registrar Entrada</h2>
+      <h2>Registrar Saída</h2>
       <form method="post">
         {% csrf_token %}
 
         <label for="pessoa">Nome:</label>
         {{ form.nome }}
 
-        <label for="id_entrada">Entrada:</label>
-        <div class="time-group">
-          {{ form.entrada }}
-          <button type="button" onclick="preencherHorario('id_entrada')">Agora</button>
-        </div>
-
-        {% comment %} <label for="id_saida">Saída:</label>
+        <label for="id_saida">Saída:</label>
         <div class="time-group">
           {{ form.saida }}
           <button type="button" onclick="preencherHorario('id_saida')">Agora</button>
-        </div> {% endcomment %}
+        </div>
 
         <button type="submit">Salvar</button>
-      </form> 
+      </form>
     </div>
     <script>
       function preencherHorario(id) {

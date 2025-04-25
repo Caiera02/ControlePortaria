@@ -22,7 +22,7 @@ def controle_view(request):
         {'controle' : control}
     )
     
-@login_required(login_url='/admin/')
+@login_required(login_url='/login/')
 def registra_ponto(request):
     if request.method == 'POST':
         form = ControleForm(request.POST)
@@ -36,7 +36,7 @@ def registra_ponto(request):
         'form': form,
     })
     
-@login_required(login_url='/admin/')
+@login_required(login_url='/login/')
 def saida_ponto(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')

@@ -16,6 +16,14 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Tempo máximo de inatividade (em segundos)
+SESSION_COOKIE_AGE = 300  # 05 minutos
+
+# A sessão é renovada a cada requisição ativa
+SESSION_SAVE_EVERY_REQUEST = True
+
+# A sessão é destruída ao fechar o navegador (opcional, mas recomendado)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
